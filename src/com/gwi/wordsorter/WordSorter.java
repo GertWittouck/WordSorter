@@ -23,7 +23,7 @@ public class WordSorter {
                 .collect(Collectors.toList());
 
         // Get unique words ignoring case
-        TreeSet<String> seen = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+        Set<String> seen = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
         words.removeIf(s -> !seen.add(s));
 
         // Sort by ascending length
