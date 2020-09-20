@@ -4,6 +4,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toList;
+
 public class WordSorter {
 
     /*
@@ -20,18 +22,9 @@ public class WordSorter {
 
     public static void main(String[] args) {
         List<String> words = Stream.of(args)
-                .collect(Collectors.toList());
+                .collect(toList());
 
-        // Get unique words ignoring case
-        Set<String> seen = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
-        words.removeIf(s -> !seen.add(s));
-
-        // Sort by ascending length
-        Collections.sort(words, new WordLengthComparator());
-
-        // Sort alphabetical if words are same length
-        Collections.sort(words, new WordComparator());
-
-        System.out.println(String.join(",", words));
+        Sorter<String> stringSorter = SorterFactory.getInstance().createStringSorter();
+        System.out.println(String.join(",", stringSorter.sort(words)));
     }
 }

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="WordSorter:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/WordSorter_jar</output-path>
+    <root id="archive" name="WordSorter.jar">
+      <element id="module-output" name="WordSorter" />
+    </root>
+  </artifact>
+</component>
